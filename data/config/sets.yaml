@@ -1,0 +1,31 @@
+# Related words (complete)
+related_words_strong_directions: {set: [West, North, East, South], intruder: incisors}
+related_words_strong_subdirections: {set: [NE, NW, SE, SW], intruder: plasma}
+related_words_strong_students: {set: [freshman, sophomore, junior, senior], intruder: Thymine}
+related_words_strong_houses: {set: [Gryffindor, Hufflepuff, Ravenclaw, Slytherin], intruder: Spades}
+related_words_strong_elements: {set: [earth, fire, air, water], intruder: molars}
+related_words_strong_matter: {set: [solid, liquid, gas, plasma], intruder: freshman}
+related_words_strong_teeth: {set: [incisors, canines, premolars, molars], intruder: multiplication}
+related_words_strong_operations: {set: [addition, subtraction, multiplication, division], intruder: Hufflepuff}
+related_words_strong_cards: {set: [Hearts, Diamonds, Clubs, Spades], intruder: East}
+related_words_strong_dna: {set: [Adenine, Thymine, Cytosine, Guanine], intruder: canines}
+
+# Related words
+related_words_loose_animals: {set: [cat, horse, deer, bear], intruder: amethyst}
+related_words_loose_fruits: {set: [cherry, pear, melon, banana], intruder: attack}
+related_words_loose_clothes: {set: [shirt, dress, skirt, sweater], intruder: candy}
+
+# Unrelated words
+unrelated_words1: {set: [candy, amethyst, belt, pond], intruder: null}
+unrelated_words2: {set: [gas, bee, cheese, actor], intruder: null}
+unrelated_words3: {set: [attack, daisy, attic, commerce], intruder: null}
+
+# Related numbers
+related_numbers_d2: {set: [100, 102, 104, 106], intruder: 257}
+related_numbers_d75: {set: [100, 175, 250, 325], intruder: 276}
+related_numbers_d100: {set: [100, 200, 300, 400], intruder: 399}
+
+# Unrelated numbers
+unrelated_numbers1: {set: [399, 690, 734, 847], intruder: null}
+unrelated_numbers2: {set: [276, 508, 661, 863], intruder: null}
+unrelated_numbers3: {set: [257, 356, 650, 935], intruder: null}

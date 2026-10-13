@@ -1,0 +1,34 @@
+prefix: "Answer with a single word."
+
+templates:
+- id: 3 # e.g. A set consists of the following elements: {elements} Does this set contain the element {element}?
+  prompt: "A {f_set} consists of the following {f_element_pl}: {elements}\nDoes this {f_set} {f_contain} {f_element} {element}?"
+  features: {order: {id: 1, type: "set_first", to_str: "set_first"}}
+  use_infinitive: True
+- id: 4 # e.g. Does a set contain the element {element} if it consists of the following elements: {elements}?
+  prompt: "Does a {f_set} {f_contain} {f_element} {element} if it consists of the following {f_element_pl}: {elements}?"
+  features: {order: {id: 2, type: "element_first", to_str: "element_first"}}
+  use_infinitive: True
+
+features:
+  element:
+    - {id: 1, synonym: "element", article: "the", to_str: "element"}
+    - {id: 2, synonym: "item", article: "the", to_str: "item"}
+    - {id: 3, synonym: "character sequence", article: "the", to_str: "character sequence"}
+    - {id: 4, synonym: "string", article: "the", to_str: "string"}
+  contain:
+    - {id: 1, infinitive: "contain", question: ["is", "contained in"], to_str: "contain"}
+    - {id: 2, infinitive: "include", question: ["is", "included in"], to_str: "include"}
+  set:
+    - {id: 1, synonym: "set", to_str: "set"}
+    - {id: 2, synonym: "list", to_str: "list"}
+  quotation:
+    - {id: 1, type: null, to_str: "none"}
+    - {id: 2, type: "'", to_str: "'"}
+    - {id: 3, type: "\"", to_str: "\""}
+  listing:
+    - {id: 1, type: "{}", is_bulletpoint: False, to_str: "{}"}
+    - {id: 2, type: "()", is_bulletpoint: False, to_str: "()"}
+    - {id: 3, type: "[]", is_bulletpoint: False, to_str: "[]"}
+    - {id: 4, type: "-", is_bulletpoint: True, to_str: "-"}
+    - {id: 5, type: "*", is_bulletpoint: True, to_str: "*"}

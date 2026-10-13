@@ -1,0 +1,100 @@
+prefix: "Answer with a single word."
+
+templates:
+- id: 1
+  prompt: |-2
+    Given the Python code below, {f_result_question}
+
+    ```python{f_logic}
+    {f_variable} = {f_init}
+    {f_result_code}
+    ```
+  docstring: |-2
+    """
+    Checks if an item is in a set.
+
+    Args:
+        s (set): The set to check in.
+        item (any): The item to check for.
+    Returns:
+        bool: True if the item is in the set, False otherwise.
+    """
+
+features:
+  init:
+    - {id: 1, type: "shorthand", code: "{{{elements}}}", to_str: "shorthand"}
+    - {id: 2, type: "constructor-list", code: "set([{elements}])", to_str: "constructor-list"}
+    - {id: 3, type: "constructor-tuple", code: "set(({elements}))", to_str: "constructor-tuple"}
+    - {id: 4, type: "constructor-split", code: "set({elements}.split())", to_str: "constructor-split"}
+  quotation:
+    - {id: 1, type: "\"", to_str: "\""}
+    - {id: 2, type: "'", to_str: "'"}
+  result:
+    - {id: 1, type: "variable", question: "what will be the value of the `result` variable?", code: "result = {f_logic_operation}", to_str: "variable"}
+    - {id: 2, type: "print", question: "what will be the output?", code: "print({f_logic_operation})", to_str: "print"}
+  variable:
+    - {id: 1, name: "S", to_str: "S"}
+    - {id: 2, name: "my_set", to_str: "my_set"}
+  arg_order:
+    - {id: 1, order: "set_first", to_str: "set_first"}
+    - {id: 2, order: "element_first", to_str: "element_first"}
+  logic:
+    - id: 1
+      type: "main"
+      imports: null
+      arg_set: null
+      arg_item: null
+      returns: null
+      docstring: False
+      code: null
+      operation: "{element} in {f_variable}"
+      to_str: "main"
+
+    - id: 2
+      type: "function"
+      imports: null
+      arg_set: "s"
+      arg_item: "item"
+      returns: null
+      docstring: False
+      code: "return item in s"
+      operation: "contains({f_arg1}, {f_arg2})"
+      to_str: "function"
+
+    - id: 3
+      type: "function-typehint"
+      imports: "from typing import Any, Set"
+      arg_set: "s: Set[Any]"
+      arg_item: "item: Any"
+      returns: "bool"
+      docstring: False
+      code: "return item in s"
+      operation: "contains({f_arg1}, {f_arg2})"
+      to_str: "function-typehint"
+
+    - id: 4
+      type: "function-docstring"
+      imports: null
+      arg_set: "s"
+      arg_item: "item"
+      returns: null
+      docstring: True
+      code: "return item in s"
+      operation: "contains({f_arg1}, {f_arg2})"
+      to_str: "function-docstring"
+
+    - id: 5
+      type: "function-typehint-docstring"
+      imports: "from typing import Any, Set"
+      arg_set: "s: Set[Any]"
+      arg_item: "item: Any"
+      returns: "bool"
+      docstring: True
+      code: "return item in s"
+      operation: "contains({f_arg1}, {f_arg2})"
+      to_str: "function-typehint-docstring"
+
+  tab:
+    - {id: 1, type: 4, to_str: "space:4"}
+    - {id: 2, type: 2, to_str: "space:2"}
+    - {id: 3, type: '\t', to_str: "tab"}
